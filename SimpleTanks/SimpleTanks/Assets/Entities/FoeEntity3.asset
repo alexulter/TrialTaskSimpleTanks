@@ -8,10 +8,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61f2561336f999946a384a025c4ff4f1, type: 3}
-  m_Name: GunEntity2
+  m_Script: {fileID: 11500000, guid: af330911519cd984480db005ce1536b6, type: 3}
+  m_Name: FoeEntity3
   m_EditorClassIdentifier: 
+  MaxHealthPoints: 10
+  Defence: 1
+  Movespeed: 1
   Appearance:
     serializedVersion: 2
-    rgba: 219
-  Damage: 20
+    rgba: 42456
+  Damage: 100

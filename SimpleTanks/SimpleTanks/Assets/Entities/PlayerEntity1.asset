@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealthPoints: 100
   Defence: 0
-  Movespeed: 1
+  Movespeed: 5
   GunsList:
   - {fileID: 11400000, guid: e778fb015d9bd0e4393d02e5ff4cbbec, type: 2}
   - {fileID: 11400000, guid: e59e2eadad20ce444a04e4a553641ad0, type: 2}

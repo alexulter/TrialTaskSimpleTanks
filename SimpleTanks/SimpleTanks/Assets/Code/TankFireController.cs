@@ -5,6 +5,7 @@ using UnityEngine;
 public class TankFireController : MonoBehaviour {
 
     public FireProjectile ProjectilePref;
+    public Transform FiringPoint;
     private List<FireProjectile> m_ProjectileBuffer = new List<FireProjectile>();
     private const int BUFFER_SIZE = 10;
     private float m_ProjectileSpeed = 10f;
@@ -14,7 +15,9 @@ public class TankFireController : MonoBehaviour {
 	void Start () {
 		for (int i = 0; i < BUFFER_SIZE; i++)
         {
-            m_ProjectileBuffer.Add(Instantiate<FireProjectile>(ProjectilePref));
+            var inst = Instantiate<FireProjectile>(ProjectilePref);
+            m_ProjectileBuffer.Add(inst);
+            inst.StopMe();
         }
 	}
 
@@ -31,7 +34,7 @@ public class TankFireController : MonoBehaviour {
             {
                 if (!entry.gameObject.activeSelf)
                 {
-                    entry.ShootMe(transform.forward, m_ProjectileSpeed, transform.position + transform.forward * 1f, m_RawDamage);
+                    entry.ShootMe(transform.forward, m_ProjectileSpeed, FiringPoint.position, m_RawDamage);
                     break;
                 }
             }

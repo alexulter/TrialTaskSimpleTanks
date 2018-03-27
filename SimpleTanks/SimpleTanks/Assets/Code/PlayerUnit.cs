@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerUnit : UnitController {
-    public PlayerEntity PlayerData;
+    public PlayerEntity PlayerData
+    {
+        get { return (PlayerEntity)UnitData; }
+    }
     public int CurrentGunIndex;
 
     public GameObject GunGo;
@@ -19,6 +22,7 @@ public class PlayerUnit : UnitController {
             movCtr.SetMovespeed(PlayerData.Movespeed);
         }
         SetUpGun();
+        GameManager.Instance.PlayerUnit = this;
     }
 
     private void SetUpGun()
@@ -38,5 +42,15 @@ public class PlayerUnit : UnitController {
     {
         if (Input.GetKeyDown(KeyCode.Q)) { CurrentGunIndex--; SetUpGun(); }
         if (Input.GetKeyDown(KeyCode.E)) { CurrentGunIndex++; SetUpGun(); }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        var foe = other.transform.parent.GetComponent<FoeUnit>();
+        if (foe)
+        {
+            RecieveDamage(foe.FoeData.Damage);
+            foe.KillMe();
+        }
     }
 }

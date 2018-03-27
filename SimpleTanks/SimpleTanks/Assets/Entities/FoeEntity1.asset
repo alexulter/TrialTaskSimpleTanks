@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: FoeEntity1
   m_EditorClassIdentifier: 
   MaxHealthPoints: 10
-  Defence: 1
+  Defence: 10
   Movespeed: 1
   Appearance:
     serializedVersion: 2

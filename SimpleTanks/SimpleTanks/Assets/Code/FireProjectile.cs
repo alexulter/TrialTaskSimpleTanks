@@ -8,7 +8,7 @@ public class FireProjectile : MonoBehaviour {
     private float m_Movespeed;
     private float m_StartTime;
     private float m_Liespawn = 2f;
-    private float m_RawDaamge;
+    private float m_RawDamge;
 
     // Use this for initialization
 	void Start () {
@@ -28,6 +28,7 @@ public class FireProjectile : MonoBehaviour {
     {
         m_Direction = direction;
         m_Movespeed = movespeed;
+        m_RawDamge = rawDamage;
         transform.position = startPosition;
         gameObject.SetActive(true);
         m_StartTime = Time.timeSinceLevelLoad;
@@ -36,5 +37,16 @@ public class FireProjectile : MonoBehaviour {
     public void StopMe()
     {
         gameObject.SetActive(false);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        StopMe();
+        var foeHit = other.transform.parent.GetComponent<FoeUnit>();
+        if (!foeHit)
+        {
+            return;
+        }
+        foeHit.RecieveDamage(m_RawDamge);
     }
 }

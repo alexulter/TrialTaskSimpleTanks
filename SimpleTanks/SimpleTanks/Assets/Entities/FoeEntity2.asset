@@ -11,9 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af330911519cd984480db005ce1536b6, type: 3}
   m_Name: FoeEntity2
   m_EditorClassIdentifier: 
-  MaxHealthPoints: 10
-  Defence: 1
-  Movespeed: 1
+  MaxHealthPoints: 1
+  Defence: 0
+  Movespeed: 2
   Appearance:
     serializedVersion: 2
     rgba: 55509

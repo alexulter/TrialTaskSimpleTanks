@@ -7,9 +7,12 @@ public class TankMovementController : MonoBehaviour {
     private float m_Movement = 0f;
     private float m_Rotation = 0f;
     private float m_MoveSpeed = 1f;
-    private float m_RotationSpeed = 100f;
-	// Use this for initialization
-	void Start () {
+    private float m_RotationSpeed = 200f;//100f;
+
+    private const float MAX_X = 9f;
+    private const float MAX_Z = 9f;
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -36,6 +39,10 @@ public class TankMovementController : MonoBehaviour {
 
         transform.localPosition += m_MoveSpeed * m_Movement * transform.forward * Time.deltaTime;
         transform.Rotate(Vector3.up, m_Rotation * m_RotationSpeed * Time.deltaTime);
+
+        var x = Mathf.Clamp(transform.position.x, -MAX_X, MAX_X);
+        var z = Mathf.Clamp(transform.position.z, -MAX_Z, MAX_Z);
+        transform.position = new Vector3(x, transform.position.y, z);
     }
 
     public void SetMovespeed(float movespeed)
