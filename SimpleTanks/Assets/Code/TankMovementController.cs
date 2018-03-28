@@ -20,19 +20,19 @@ public class TankMovementController : MonoBehaviour {
 	void Update () {
         m_Movement = 0f;
         m_Rotation = 0f;
-        if (Input.GetKey(KeyCode.W)||Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow))
         {
             m_Movement = 1f;
         }
-        if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.DownArrow))
         {
             m_Movement = -1f;
         }
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             m_Rotation = -1f;
         }
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             m_Rotation = 1f;
         }

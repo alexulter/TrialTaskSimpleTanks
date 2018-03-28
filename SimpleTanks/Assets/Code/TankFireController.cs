@@ -28,7 +28,7 @@ public class TankFireController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+        if (Input.GetKeyDown(KeyCode.X))
         {
             foreach (var entry in m_ProjectileBuffer)
             {

@@ -41,7 +41,7 @@ public class PlayerUnit : UnitController {
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q)) { CurrentGunIndex--; SetUpGun(); }
-        if (Input.GetKeyDown(KeyCode.E)) { CurrentGunIndex++; SetUpGun(); }
+        if (Input.GetKeyDown(KeyCode.W)) { CurrentGunIndex++; SetUpGun(); }
     }
 
     private void OnTriggerEnter(Collider other)
